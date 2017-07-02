@@ -14,13 +14,16 @@
         <p id="ourQuote"></p>
         <p id="quoteAuthor"></p>
         <button id="quoteGen">New Quote</button>
+        <button id="twitter"><a class="twitter-share-button" style="text-decoration:none;">Tweet</a></button>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
+        var quoteStr;
+        var quoteToLink;
 
         $(document).ready(function(){
-          var test = function getQuote(){
+          var quoting = function getQuote(){
             $.ajax({
               headers: {
                 "X-Mashape-Key": "6Qn9PvTTHWmshtqJAj1PzcsMhFg3p17H8Y9jsnohJdBQVvQH7X",
@@ -32,13 +35,17 @@
               type: "GET",
               success: function(result){
                 console.log(result);
-                document.getElementById("ourQuote").innerHTML = JSON.stringify(result["quote"]);
-                document.getElementById("quoteAuthor").innerHTML = JSON.stringify(result["author"]);
+                quoteStr = JSON.stringify(result["quote"]);
+                quoteToLink = "https://twitter.com/intent/tweet?text=" + quoteStr.slice(1,-1).replace(/ /g, "%20");
+                $(".twitter-share-button").attr("href", quoteToLink);
+                document.getElementById("ourQuote").innerHTML = "<span style='font-weight:bold;'>Quote:</span> " + JSON.stringify(result["quote"]);
+                document.getElementById("quoteAuthor").innerHTML = "<span style='font-weight:bold;'>Author: </span>" + JSON.stringify(result["author"]);
               }
             });
           };
-          test();
-          $("#quoteGen").on("click", test);
+          quoting();
+          $("#quoteGen").on("click", quoting);
+
         });
     </script>
 </body>
