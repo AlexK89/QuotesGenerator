@@ -33,7 +33,7 @@ html {
 }
 
 .content-text {
-    height: 150px;
+    min-height: 150px;
     display: block;
     margin: auto;
     background: #fff;
@@ -42,13 +42,14 @@ html {
 }
 
 #ourQuote {
-    text-align: center;
-    font-size: 1.2em;
+    text-align: justify;
+    font-size: 1.3em;
+    font-style: italic;
     color: rgb(185, 185, 185)
 }
 
 #quoteAuthor {
-    text-align: center;
+    text-align: right;
     font-size: 0.8em;
     padding-top: 20px;
     color: rgb(115, 114, 114);
