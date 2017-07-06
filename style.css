@@ -42,7 +42,7 @@ html {
 }
 
 #ourQuote {
-    text-align: justify;
+    text-align: center;
     font-size: 1.3em;
     font-style: italic;
     color: rgb(185, 185, 185)

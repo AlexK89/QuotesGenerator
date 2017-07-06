@@ -19,7 +19,7 @@ $(document).ready(function () {
         quoteToLink = 'https://twitter.com/intent/tweet?text="' + quoteStr.slice(1, -1).replace(/ /g, '%20') + '"' + ' - ' + authorStr.slice(1, -1).replace(/ /, '%20');
         $('.twitter-share-button').attr('href', quoteToLink);
         document.getElementById('ourQuote').innerHTML = quoteStr;
-        document.getElementById('quoteAuthor').innerHTML = 'Author:' + authorStr;
+        document.getElementById('quoteAuthor').innerHTML = 'Author: ' + authorStr.slice(1,-1);
       },
     });
   };
