@@ -18,8 +18,8 @@ $(document).ready(function () {
         authorStr = JSON.stringify(result.author);
         quoteToLink = 'https://twitter.com/intent/tweet?text="' + quoteStr.slice(1, -1).replace(/ /g, '%20') + '"' + ' - ' + authorStr.slice(1, -1).replace(/ /, '%20');
         $('.twitter-share-button').attr('href', quoteToLink);
-        document.getElementById('ourQuote').innerHTML = '<span style="font-weight:bold;">Quote:</span> ' + quoteStr;
-        document.getElementById('quoteAuthor').innerHTML = '<span style="font-weight:bold;">Author: </span>' + authorStr;
+        document.getElementById('ourQuote').innerHTML = quoteStr;
+        document.getElementById('quoteAuthor').innerHTML = 'Author:' + authorStr;
       },
     });
   };
